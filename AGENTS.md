@@ -1,5 +1,9 @@
 # Prototype Instructions
 
+## Approved content corrections (21 October 2026)
+
+Preserve the existing visual design. Home includes (1948-2026); About Me records Walter's death on 21 August 2026 and offers Marlies' July 2026 video. Contact has only Cosimo/Marlies email links and the Florence showroom note, with no old address or form. Galleries must retain every original artwork and working incremental Show More, using local sharp images instead of Wix blurred placeholders.
+
 Run the local server yourself and open the preview in the browser available to this environment. Do not give the user server-start instructions when you can run it.
 
 Before making substantial visual changes, use the Product Design plugin's `get-context` skill when the visual source is unclear or no longer matches the current goal. When the user gives durable prototype-specific design feedback, preferences, or decisions, record them in `AGENTS.md`.

@@ -1,0 +1,9 @@
+.memorial { margin-top: 6px; }
+.gallery-count { text-align: center; color: #666; font-size: 11px; margin: 14px 0 0; }
+.site .show-more { padding: 10px 20px; border: 1px solid #aaa; }
+.show-more:hover { background: #f3f3f3; }
+.show-more:focus-visible, .work-video summary:focus-visible { outline: 2px solid #555; outline-offset: 3px; }
+.work-video { margin: 28px 0; }
+.work-video summary { cursor: pointer; text-decoration: underline; padding: 10px 0; }
+.work-video video { display: block; width: 100%; max-height: 70vh; background: #111; margin: 12px auto; }
+.contact p { line-height: 1.8; }
