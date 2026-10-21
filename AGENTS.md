@@ -2,6 +2,8 @@
 
 ## Approved content corrections (21 October 2026)
 
+Home tiles retain their existing cropped thumbnails, but clicking each tile must open its own uncropped, full-work image. Keep these two asset references separate in src/home-data.json.
+
 About Me's chronological biography uses two aligned columns: dates on the left, descriptions on the right, including wrapped lines on narrow screens.
 
 Remove the nonfunctional social symbols. Do not restore them without verified profile URLs approved by Marlies.

@@ -22,6 +22,7 @@ Contact uses direct email links to Cosimo and Marlies; there is no contact form.
 ## Gallery and video maintenance
 
 - src/gallery-data.json contains all 58 recent works and 35 botanical/landscape works, in their original Wix order.
+- src/home-data.json maps each of the nine cropped home tiles to its complete original artwork for the lightbox. Do not reuse the cropped thumbnail as the enlarged image.
 - Each gallery initially displays nine works; Show More adds six, until all works are visible.
 - Sharp local JPEG thumbnails (up to 640px) and lightbox images (up to 1600px) are stored in public/assets/. Source filenames and dimensions are recorded in the manifest.
 - Run node scripts/import-gallery-assets.mjs to re-download gallery assets from the published source. The deployed site makes no requests to Wix.

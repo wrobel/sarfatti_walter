@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import galleryData from "./gallery-data.json";
+import homeData from "./home-data.json";
 import "./corrections.css";
 import { INITIAL_GALLERY_SIZE, nextGallerySize } from "./gallery-pagination.mjs";
 const A=`${import.meta.env.BASE_URL}assets/`;
 const nav=[["home","/"],["recent works","/modern"],["botanical and landscapes","/botanical-and-other"],["about me","/about"],["exhibitions/editions","/exhibitions"],["Workshop surroundings","/my-surroundings-in-tuscany"],["contact","/contact"]];
-const homeWorks=[["oblivion","pastel","0da3fdd9c5a52ecd.avif"],["free fall","acrylic painting","b05413f862b5fcb8.avif"],["vele","original print","09a9d24cdc8a96d9.avif"],["neubeginn","acrylic painting","16f50d3a2b5df6ba.avif"],["archeologica","original print","fa801f5e9446ba94.avif"],["elements","original print","67326d068653136f.avif"],["Fraeulein Meyers Hinterhaus Band","pastel","971de3761e1c5a8c.avif"],["transition","acrylic painting","a59b21f8fe5bcd97.avif"],["buried cathedral","pastel","40132dba39212d0f.avif"]];
+const homeWorks=homeData.map(({title,medium,image,thumbnail})=>[title,medium,image,thumbnail]);
 const recentWorks=galleryData.modern.map(({title,medium,image})=>[title,medium,image,`thumbnails/${image}`]);
 const botanicalWorks=galleryData.botanical.map(({title,medium,image})=>[title,medium,image,`thumbnails/${image}`]);
 function Header({path}) {

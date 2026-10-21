@@ -3,9 +3,10 @@
 import { readFile, writeFile, mkdir, stat } from "node:fs/promises";
 const root = new URL("../", import.meta.url);
 const data = JSON.parse(await readFile(new URL("src/gallery-data.json", root)));
+const home = JSON.parse(await readFile(new URL("src/home-data.json", root)));
 const directory = new URL("public/assets/", root);
 await mkdir(new URL("thumbnails/", directory), { recursive: true });
-const works = [...new Map(Object.values(data).flat().map(item => [item.image, item])).values()];
+const works = [...new Map([...Object.values(data).flat(), ...home].map(item => [item.image, item])).values()];
 const jobs = works.flatMap(item => [1600, 640].map(size => ({ item, size })));
 let next = 0;
 async function worker() {
