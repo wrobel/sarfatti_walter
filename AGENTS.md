@@ -2,7 +2,7 @@
 
 ## Approved content corrections (21 October 2026)
 
-Preserve the existing visual design. Home includes (1948-2026); About Me records Walter's death on 21 August 2026 and offers Marlies' July 2026 video. Contact has only Cosimo/Marlies email links and the Florence showroom note, with no old address or form. Galleries must retain every original artwork and working incremental Show More, using local sharp images instead of Wix blurred placeholders.
+Preserve the existing visual design. The shared header includes (1948-2026) on every page, not just Home; About Me records Walter's death on 21 August 2026 and offers Marlies' July 2026 video. Contact has only Cosimo/Marlies email links and the Florence showroom note, with no old address or form. Galleries must retain every original artwork and working incremental Show More, using local sharp images instead of Wix blurred placeholders.
 
 Run the local server yourself and open the preview in the browser available to this environment. Do not give the user server-start instructions when you can run it.
 
