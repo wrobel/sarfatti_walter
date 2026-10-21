@@ -1,4 +1,8 @@
 .memorial { margin-top: 6px; }
+.biography { display: grid; grid-template-columns: max-content minmax(0, 1fr); column-gap: 24px; row-gap: 10px; margin: 0; }
+.biography dt { margin: 0; font-variant-numeric: tabular-nums; }
+.biography dd { margin: 0; }
+@media (max-width: 480px) { .biography { column-gap: 14px; grid-template-columns: 105px minmax(0, 1fr); } }
 .gallery-count { text-align: center; color: #666; font-size: 11px; margin: 14px 0 0; }
 .site .show-more { padding: 10px 20px; border: 1px solid #aaa; }
 .show-more:hover { background: #f3f3f3; }
