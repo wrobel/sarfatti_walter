@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import galleryData from "./gallery-data.json";
 import "./corrections.css";
 import { INITIAL_GALLERY_SIZE, nextGallerySize } from "./gallery-pagination.mjs";
@@ -7,7 +7,28 @@ const nav=[["home","/"],["recent works","/modern"],["botanical and landscapes","
 const homeWorks=[["oblivion","pastel","0da3fdd9c5a52ecd.avif"],["free fall","acrylic painting","b05413f862b5fcb8.avif"],["vele","original print","09a9d24cdc8a96d9.avif"],["neubeginn","acrylic painting","16f50d3a2b5df6ba.avif"],["archeologica","original print","fa801f5e9446ba94.avif"],["elements","original print","67326d068653136f.avif"],["Fraeulein Meyers Hinterhaus Band","pastel","971de3761e1c5a8c.avif"],["transition","acrylic painting","a59b21f8fe5bcd97.avif"],["buried cathedral","pastel","40132dba39212d0f.avif"]];
 const recentWorks=galleryData.modern.map(({title,medium,image})=>[title,medium,image,`thumbnails/${image}`]);
 const botanicalWorks=galleryData.botanical.map(({title,medium,image})=>[title,medium,image,`thumbnails/${image}`]);
-function Header({path}){return <><header><a className="brand" href="#/">Walter Sarfatti</a><div className="tagline">artist printmaker in Tuscany</div><div className="tagline memorial">( 1948 – 2026 )</div></header><nav aria-label="Site navigation">{nav.map(([label,href])=><a className={path===href?"active":""} href={`#${href}`} key={href}>{label}</a>)}</nav></>}
+function Header({path}) {
+  const [menuOpen,setMenuOpen]=useState(false);
+  const toggle=useRef(null);
+  const currentPage=nav.find(([,href])=>href===path)?.[0]||"home";
+  useEffect(()=>setMenuOpen(false),[path]);
+  function handleEscape(event) {
+    if(event.key==="Escape"&&menuOpen) {
+      setMenuOpen(false);
+      toggle.current?.focus();
+    }
+  }
+  return <><header><a className="brand" href="#/">Walter Sarfatti</a><div className="tagline">artist printmaker in Tuscany</div><div className="tagline memorial">( 1948 – 2026 )</div></header>
+    <nav className="site-nav" aria-label="Site navigation" onKeyDown={handleEscape}>
+      <button ref={toggle} className="menu-toggle" aria-expanded={menuOpen} aria-controls="site-navigation-links" onClick={()=>setMenuOpen(open=>!open)}>
+        <span><span aria-hidden="true">{menuOpen?"×":"☰"}</span> Menu</span>
+        <span className="current-page">{currentPage}</span>
+      </button>
+      <div id="site-navigation-links" className={`nav-links${menuOpen?" is-open":""}`}>
+        {nav.map(([label,href])=><a className={path===href?"active":""} aria-current={path===href?"page":undefined} href={`#${href}`} onClick={()=>setMenuOpen(false)} key={href}>{label}</a>)}
+      </div>
+    </nav></>;
+}
 function Footer(){return <footer/>}
 function Gallery({works,captions=true,onOpen}){return <div className="gallery">{works.map(([title,medium,image,thumbnail],index)=><button className="art" key={`${image}-${index}`} onClick={()=>onOpen({title,medium,image})} aria-label={`Open ${title}`}><img src={`${A}${thumbnail||image}`} alt={title} loading="lazy" decoding="async"/>{captions&&<span><b>{title}</b><small>{medium}</small></span>}</button>)}</div>}
 function PaginatedGallery({works,onOpen}) {

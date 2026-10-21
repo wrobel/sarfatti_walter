@@ -1,4 +1,17 @@
 .memorial { margin-top: 6px; }
+.menu-toggle { display: none; }
+.nav-links { display: flex; align-items: center; justify-content: center; }
+@media (max-width: 700px) {
+  .site .site-nav { display: block; height: auto; overflow: visible; white-space: normal; padding: 0; margin: 0 15px 12px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
+  .site-nav .menu-toggle { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-height: 46px; padding: 12px 8px; border: 0; background: #fff; color: #444; cursor: pointer; text-align: left; font-size: 13px; }
+  .menu-toggle > span:first-child { flex-shrink: 0; }
+  .menu-toggle .current-page { min-width: 0; color: #777; font-size: 12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-align: right; }
+  .site-nav .nav-links { display: none; padding: 0 0 8px; }
+  .site-nav .nav-links.is-open { display: block; }
+  .site .site-nav .nav-links a { display: block; min-height: 44px; padding: 13px 12px; font-size: 13px; border-left: 2px solid transparent; }
+  .site .site-nav .nav-links a.active { border-left-color: #888; background: #f6f6f6; color: #333; }
+  .menu-toggle:focus-visible, .nav-links a:focus-visible { outline: 2px solid #555; outline-offset: -2px; }
+}
 .biography { display: grid; grid-template-columns: max-content minmax(0, 1fr); column-gap: 24px; row-gap: 10px; margin: 0; }
 .biography dt { margin: 0; font-variant-numeric: tabular-nums; }
 .biography dd { margin: 0; }
